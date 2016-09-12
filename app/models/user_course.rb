@@ -1,7 +1,7 @@
 class UserCourse < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
-  has_many :events
+  has_many :events, :dependent => :destroy
 
   validates :user, :course, presence: true
 end

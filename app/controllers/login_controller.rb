@@ -11,7 +11,12 @@ class LoginController < ApplicationController
       line = Cocaine::CommandLine.new("caverify")
       @user_rut = line.run.chomp
       @user = User.where(rut: @user_rut).first
+    if @user
       @user_id = @user.id
+    else
+      redirect_to '/?status=error'
+      return
+    end
     rescue Cocaine::ExitStatusError => e
       redirect_to '/?status=error'
       return
