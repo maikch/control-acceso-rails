@@ -1,0 +1,28 @@
+<% if @status == 'error' %>
+    <div class="alert alert-danger hide-after-4-seconds" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      Hubo un error, intente nuevamente.
+    </div>
+<% end %>
+
+<% if @status == 'ok' %>
+    <div class="alert alert-success hide-after-4-seconds" role="alert">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span class="sr-only">Success:</span>
+      <% if @type == 'login'%> Registrado <% end %>
+      <% if @type == 'logout'%> Desregistrado <% end %>
+       con éxito
+      <% if @type == 'login'%> a <% end %>
+      <% if @type == 'logout'%> de <% end %>
+      <%= @course.name %>
+    </div>
+<% end %>
+<br>
+<br>
+<div class="col-md-4 text-center">
+  <%= link_to("Entrar", "/login", {class: 'btn btn-primary btn-lg btn-block'}) %>
+</div>
+<div class="col-md-4 text-center">
+  <%= link_to("Salir", "/logout", {class: 'btn btn-primary btn-lg btn-block'}) %>
+</div>

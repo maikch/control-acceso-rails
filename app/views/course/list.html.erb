@@ -1,0 +1,14 @@
+<br>
+<br>
+<div class="dropdown col-md-4 text-center">
+  <button class="btn btn-default btn-lg btn-block dropdown-toggle" type="button" data-toggle="dropdown">Elija Curso
+    <span class="caret"></span></button>
+  <ul class="dropdown-menu btn-lg btn-block">
+    <% @courses.each do |course| %>
+        <li><a href=
+                   "<%= course_url(course) %>">
+          <%= course.name %>
+        </a></li>
+    <% end %>
+  </ul>
+</div>
